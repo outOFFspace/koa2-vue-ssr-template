@@ -17,7 +17,7 @@ export default {
             let device = 'desktop'
             if (width <= 961) {
                 device = 'tablet'
-            } else if(width <= 481) {
+            } else if (width <= 481) {
                 device = 'mobile'
             }
             this.$store.commit('updateAdaptation', device)

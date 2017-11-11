@@ -1,5 +1,49 @@
 <template>
-    <footer></footer>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-4">
+                    <div class="footer-logo">
+                        <a href="#" title="Lionic Legal Solution" rel="home">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                        <p>Copyright ©2017. All Right Reserved</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                    <div class="footer-menu">
+                        <div class="footer-links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms Condition</a></li>
+                            </ul>
+                        </div>
+                        <div class="social-links">
+                            <ul>
+                                <li class="twitter">
+                                    <a href="#">
+                                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="linkedin">
+                                    <a href="#">
+                                        <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="email">
+                                    <a href="#">
+                                        <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </template>
 
 <script>

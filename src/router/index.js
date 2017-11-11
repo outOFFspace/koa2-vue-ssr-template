@@ -11,13 +11,18 @@ export function createRouter() {
             {
                 path: '/',
                 component: () => import('../pages/MainPage.vue')
+            },
+            {
+                name: 'contacts',
+                path: '/:lang/contacts',
+                component: () => import('../pages/Contacts.vue')
             }
         ]
-        .concat([
-            {
-                path: '*',
-                component: Page404
-            }
-        ])
+            .concat([
+                {
+                    path: '*',
+                    component: Page404
+                }
+            ])
     })
 }

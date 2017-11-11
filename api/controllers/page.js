@@ -3,6 +3,8 @@ module.exports = {
         ctx.body = {};
     },
     view: async function (ctx) {
-        ctx.body = {};
+        ctx.body = {
+            msg: 'page view'
+        };
     }
 };

@@ -1,9 +1,30 @@
 <template>
-    <header></header>
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="site-branding col-sm-2">
+                    <a href="/">Koa2Vue2 StarterKit</a>
+                </div>
+                <div class="col-sm-10">
+                    <nav id="site-navigation" class="navbar">
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active">
+                                    <a href="homepage-1.html">Home</a>
+                                </li>
+                                <li><a href="blog-post.html">News</a></li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><router-link :to="{ name: 'contacts', params: { lang: $i18n.locale }}">Contact Us</router-link></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
 </template>
 
 <script>
-    import axois from 'axios'
     import LangSwitcher from '../components/ui/LangSwitcher.vue'
 
     export default {
