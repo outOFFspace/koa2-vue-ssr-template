@@ -9,9 +9,6 @@
                         <li>
                             <p class="about-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
                         </li>
-                        <li>
-                            <div class="social-icons"><a href="#"><i class="fa fw fa-google-plus"></i></a><a href="#"><i class="fa fw fa-facebook"></i></a><a href="#"><i class="fa fw fa-pinterest-p"></i></a><a href="#"><i class="fa fw fa-twitter"></i></a></div>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-6 clear">
@@ -19,8 +16,6 @@
                         <li>Important</li>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Testimonial</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -30,7 +25,6 @@
                         <li><a href="#">Product Support</a></li>
                         <li><a href="#">Support Center</a></li>
                         <li><a href="#">Knowledge Base</a></li>
-                        <li><a href="#">Tutorials</a></li>
                     </ul>
                 </div>
             </div>

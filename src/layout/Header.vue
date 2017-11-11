@@ -36,16 +36,15 @@
                     <div class="y"></div>
                     <div class="z"></div>
                 </div>
-                <a href="#">
-                    <img class="img-responsive header-logo" src="/images/logo.png"></a>
+                <a href="/"><img class="img-responsive header-logo" src="/images/logo.png"></a>
             </div>
             <div class="navbar-collapse nav-mobile" id="navbar">
                 <ul class="nav navbar-nav navigation-top">
-                    <li class="active"><a class="page-scroll" href="#page-top">Home</a></li>
-                    <li class=""><a class="page-scroll" href="#feature">Features</a></li>
-                    <li class=""><a class="page-scroll" href="#pricing">Pricing</a></li>
-                    <li class=""><a class="page-scroll" href="#testimonial">Testimonial</a></li>
-                    <li class=""><a class="page-scroll" href="#contact">Contact</a></li>
+                    <li class="active">
+                        <a href="/">Home</a>
+                    </li>
+                    <li><a href="#feature">Features</a></li>
+                    <li><router-link :to="{name: 'contacts', params: {lang: $i18n.locale}}">Contacts</router-link></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="login-btn" href="javascript:;" data-toggle="modal" data-target="#loginModal">Login</a>
