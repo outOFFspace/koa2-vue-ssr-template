@@ -43,7 +43,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Instant Setup<span class="circle-features icon-setup icon-align"></span></h3>
+                                <h3>Monolith Structure<span class="circle-features icon-setup icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
@@ -53,7 +53,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>GIT/SVN Support<span class="circle-features icon-git-support icon-align"></span></h3>
+                                <h3>Lightweight Koa2<span class="circle-features icon-git-support icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
@@ -63,7 +63,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Constant Backups<span class="circle-features icon-backup icon-align"></span></h3>
+                                <h3>Responsive<span class="circle-features icon-backup icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
@@ -73,7 +73,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>280+ Install Scripts<span class="circle-features icon-scripts icon-align"></span></h3>
+                                <h3>Multilanguage<span class="circle-features icon-scripts icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
@@ -83,7 +83,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>cPanel Included<span class="circle-features icon-c-panel icon-align"></span></h3>
+                                <h3>Ready To Use<span class="circle-features icon-c-panel icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
