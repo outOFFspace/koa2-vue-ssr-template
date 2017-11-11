@@ -1,13 +1,7 @@
 <template>
     <div id="app">
         <head-item></head-item>
-        <div class="site-content content-wrapper page-content">
-            <div class="page type-page hentry">
-                <div class="page-content-body">
-                    <router-view></router-view>
-                </div>
-            </div>
-        </div>
+        <router-view></router-view>
         <foot-item></foot-item>
     </div>
 </template>

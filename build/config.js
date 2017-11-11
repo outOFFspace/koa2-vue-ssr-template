@@ -4,7 +4,7 @@ let config = require('config')
 
 module.exports = {
     build: {
-        lang: 'ru',
+        lang: 'en',
         env: {
             NODE_ENV: '"production"'
         },
@@ -26,7 +26,7 @@ module.exports = {
         bundleAnalyzerReport: process.env.npm_config_report
     },
     dev: {
-        lang: 'ru',
+        lang: 'en',
         env: {
             NODE_ENV: '"development"'
         },

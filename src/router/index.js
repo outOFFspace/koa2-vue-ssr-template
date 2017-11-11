@@ -10,6 +10,11 @@ export function createRouter() {
         routes: [
             {
                 path: '/',
+                redirect: '/en/'
+            },
+            {
+                path: '/:lang/',
+                name: 'home',
                 component: () => import('../pages/MainPage.vue')
             },
             {

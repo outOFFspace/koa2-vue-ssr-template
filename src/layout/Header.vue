@@ -1,27 +1,63 @@
 <template>
-    <header class="site-header">
-        <div class="container">
-            <div class="row">
-                <div class="site-branding col-sm-2">
-                    <a href="/">Koa2Vue2 StarterKit</a>
-                </div>
-                <div class="col-sm-10">
-                    <nav id="site-navigation" class="navbar">
-                        <div class="collapse navbar-collapse navbar-ex1-collapse">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="active">
-                                    <a href="homepage-1.html">Home</a>
-                                </li>
-                                <li><a href="blog-post.html">News</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><router-link :to="{ name: 'contacts', params: { lang: $i18n.locale }}">Contact Us</router-link></li>
-                            </ul>
-                        </div>
-                    </nav>
+    <nav v-bind:class="`navbar navbar-default navigation-style navbar-fixed-top ` + className" v-bind:style="`background:` + background">
+        <div class="container container-style">
+            <!--START MOBILE NAVIGATION-->
+            <div class="navbar-container">
+                <div class="screen">
+                    <div class="menu-bg"></div>
+                    <div class="menu">
+                        <ul class="menu-splitL">
+                            <li><a class="page-scroll" href="#page-top">Home</a></li>
+                            <li><a class="page-scroll" href="#feature">Features</a></li>
+                            <li><a class="page-scroll" href="#pricing">Pricing</a></li>
+                            <li><a class="page-scroll" href="#testimonial">Testimonial</a></li>
+                            <li><a class="page-scroll" href="#contact">Contact</a></li>
+                            <li><a class="login-btn" href="javascript:;">Login</a></li>
+                            <li class="active"><a class="btn btn-bordered btn-sm sign-up-btn" href="javascript:;"><span>Sign Up</span></a>
+                            </li>
+                        </ul>
+                        <ul class="menu-splitR">
+                            <li><a class="page-scroll" href="#page-top">Home</a></li>
+                            <li><a class="page-scroll" href="#feature">Features</a></li>
+                            <li><a class="page-scroll" href="#pricing">Pricing</a></li>
+                            <li><a class="page-scroll" href="#testimonial">Testimonial</a></li>
+                            <li><a class="page-scroll" href="#contact">Contact</a></li>
+                            <li><a class="login-btn" href="javascript:;">Login</a></li>
+                            <li class="active"><a class="btn btn-bordered btn-sm sign-up-btn" href="javascript:;"><span>Sign Up</span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <!--END MOBILE NAVIGATION-->
+            <div class="navbar-header">
+                <div class="burger navbar-toggle">
+                    <div class="x"></div>
+                    <div class="y"></div>
+                    <div class="z"></div>
+                </div>
+                <a href="#">
+                    <img class="img-responsive header-logo" src="/images/logo.png"></a>
+            </div>
+            <div class="navbar-collapse nav-mobile" id="navbar">
+                <ul class="nav navbar-nav navigation-top">
+                    <li class="active"><a class="page-scroll" href="#page-top">Home</a></li>
+                    <li class=""><a class="page-scroll" href="#feature">Features</a></li>
+                    <li class=""><a class="page-scroll" href="#pricing">Pricing</a></li>
+                    <li class=""><a class="page-scroll" href="#testimonial">Testimonial</a></li>
+                    <li class=""><a class="page-scroll" href="#contact">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="login-btn" href="javascript:;" data-toggle="modal" data-target="#loginModal">Login</a>
+                    </li>
+                    <li class="active">
+                        <button class="btn btn-bordered btn-sm sign-up-btn" type="button" data-toggle="modal"
+                                data-target="#loginModal"><span>Sign Up</span></button>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
+    </nav>
 </template>
 
 <script>
@@ -31,10 +67,21 @@
         name: 'header',
         data() {
             return {
+                background: 'transparent',
+                className: ''
             }
         },
         components: {
             LangSwitcher
+        },
+        created() {
+            if (process.env.VUE_ENV === 'client') {
+                window.addEventListener('scroll', () => {
+                    const Y = window.scrollY
+                    this.background = Y > 100 ? 'rgb(0, 0, 0)' : 'transparent'
+                    this.className = Y > 100 ? 'top-nav-collapse' : ''
+                })
+            }
         }
     }
 </script>

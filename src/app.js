@@ -1,6 +1,9 @@
+/* eslint-disable */
 import Vue from 'vue'
 import {sync} from 'vuex-router-sync'
 import VueI18n from 'vue-i18n'
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
 import App from './App.vue'
 import {createStore} from './store'
 import {createRouter} from './router'
@@ -14,6 +17,8 @@ const i18n = new VueI18n({
     locale: Vue.config.lang
 })
 
+Vue.component('icon', Icon)
+
 Vue.mixin(titleMixin)
 
 export function createApp() {
@@ -21,7 +26,7 @@ export function createApp() {
     const store = createStore()
 
     router.beforeEach((to, from, next) => {
-        i18n.locale = to.params.lang || 'ru'
+        i18n.locale = to.params.lang || 'en'
         Vue.config.lang = i18n.locale
         next()
     })

@@ -39,7 +39,7 @@ module.exports = function (app) {
                 ctx.status = 500;
                 ctx.body.end('500 Internal Server Error');
                 console.error(`error during render : ${ctx.url}`);
-                console.error(`error : ${error}`);
+                console.error(error.stack);
             }
         }
 

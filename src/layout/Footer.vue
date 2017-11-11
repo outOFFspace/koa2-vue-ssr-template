@@ -1,49 +1,41 @@
 <template>
-    <footer class="site-footer">
+    <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-4">
-                    <div class="footer-logo">
-                        <a href="#" title="Lionic Legal Solution" rel="home">
-                            <img src="images/logo.png" alt="logo">
-                        </a>
-                        <p>Copyright ©2017. All Right Reserved</p>
-                    </div>
+                <div class="col-md-4 col-sm-6">
+                    <ul class="heading text-xs-center">
+                        <li>About</li>
+                        <li><img class="img-logo" src="/images/logo.png" alt="Logo"></li>
+                        <li>
+                            <p class="about-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
+                        </li>
+                        <li>
+                            <div class="social-icons"><a href="#"><i class="fa fw fa-google-plus"></i></a><a href="#"><i class="fa fw fa-facebook"></i></a><a href="#"><i class="fa fw fa-pinterest-p"></i></a><a href="#"><i class="fa fw fa-twitter"></i></a></div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-12 col-lg-8">
-                    <div class="footer-menu">
-                        <div class="footer-links">
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms Condition</a></li>
-                            </ul>
-                        </div>
-                        <div class="social-links">
-                            <ul>
-                                <li class="twitter">
-                                    <a href="#">
-                                        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="linkedin">
-                                    <a href="#">
-                                        <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="email">
-                                    <a href="#">
-                                        <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="col-md-2 col-sm-6 clear">
+                    <ul class="heading">
+                        <li>Important</li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Testimonial</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <ul class="heading">
+                        <li>Support</li>
+                        <li><a href="#">Product Support</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Knowledge Base</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 </template>
 
 <script>

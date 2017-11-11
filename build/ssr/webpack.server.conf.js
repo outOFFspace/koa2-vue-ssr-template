@@ -13,7 +13,7 @@ module.exports = merge(base, {
     },
     externals: nodeExternals({
         // do not externalize CSS files in case we need to import it from a dep
-        whitelist: /\.css$/
+        whitelist: [/\.css$/, /^vue-awesome/]
     }),
     plugins: [
         new webpack.DefinePlugin({
