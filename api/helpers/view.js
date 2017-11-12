@@ -25,7 +25,7 @@ class View {
                 clientManifest
             })
         } else {
-            const devServer = path.resolve(rootPath, 'build/ssr/setup-dev-server');
+            const devServer = path.resolve(rootPath, 'build/dev-server');
             this.ready = require(devServer)(app, (bundle, opts) => {
                 this.renderer = this.createRenderer(bundle, opts)
             })

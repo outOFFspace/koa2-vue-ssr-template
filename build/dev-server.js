@@ -1,90 +1,112 @@
-require('./check-versions')()
+require('./check-versions')();
 
-const config = require('./config')
-if (!process.env.NODE_ENV) {
-    process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
-}
+const path = require('path');
+const webpack = require('webpack');
+const MFS = require('memory-fs');
+const clientConfig = require('./webpack.client.conf');
+const serverConfig = require('./webpack.server.conf');
 
-const opn = require('opn')
-const path = require('path')
-const express = require('express')
-const webpack = require('webpack')
-const proxyMiddleware = require('http-proxy-middleware')
-const webpackConfig = require('./webpack.dev.conf')
-
-// default port where dev server listens for incoming traffic
-const port = process.env.PORT || config.dev.port
-// automatically open browser, if not set will be false
-const autoOpenBrowser = !!config.dev.autoOpenBrowser
-// Define HTTP proxies to your custom API backend
-// https://github.com/chimurai/http-proxy-middleware
-const proxyTable = config.dev.proxyTable
-
-const app = express()
-const compiler = webpack(webpackConfig)
-
-const devMiddleware = require('webpack-dev-middleware')(compiler, {
-    publicPath: webpackConfig.output.publicPath,
-    quiet: true
-})
-
-const hotMiddleware = require('webpack-hot-middleware')(compiler, {
-    log: () => {
+const readFile = (fs, file) => {
+    const filepath = path.join(clientConfig.output.path, file)
+    try {
+        return fs.readFileSync(filepath, 'utf-8')
+    } catch (error) {
+        console.error(`readFile ${filepath} Error:`, error.statck)
     }
-})
-// force page reload when html-webpack-plugin template changes
-compiler.plugin('compilation', function (compilation) {
-    compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-        hotMiddleware.publish({action: 'reload'})
-        cb()
-    })
-})
+};
 
-// proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
-    let options = proxyTable[context]
-    if (typeof options === 'string') {
-        options = {target: options}
+const hotMiddleware = (compiler, opts) => {
+    const expressMiddleware = require('webpack-hot-middleware')(compiler, opts)
+    return (ctx, next) => {
+        const stream = new require('stream').PassThrough()
+        ctx.body = stream;
+        return expressMiddleware(ctx.req, {
+            write: stream.write.bind(stream),
+            writeHead: (state, headers) => {
+                ctx.state = state;
+                ctx.set(headers)
+            },
+        }, next)
     }
-    app.use(proxyMiddleware(options.filter || context, options))
-})
+};
 
-// handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')())
 
-// serve webpack bundle output
-app.use(devMiddleware)
+module.exports = function setupDevServer(app, cb) {
+    let bundle;
+    let clientManifest;
+    let resolve;
+    const readyPromise = new Promise(r => {
+        resolve = r
+    });
+    const ready = (...args) => {
+        resolve();
+        cb(...args)
+    };
 
-// enable hot-reload and state-preserving
-// compilation error display
-app.use(hotMiddleware)
+    // modify client config to work with hot middleware
+    clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app]
 
-// serve pure static assets
-const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+    // dev middleware
+    const clientCompiler = webpack(clientConfig)
+    const devMiddleware = require('webpack-dev-middleware')(clientCompiler, {
+        publicPath: clientConfig.output.publicPath,
+        noInfo: true,
+        stats: {
+            colors: true,
+            chunks: false
+        }
+    });
 
-let uri = 'http://localhost:' + port
+    app.use((ctx, next) => devMiddleware(ctx.req, {
+            end: (content) => {
+                ctx.body = content
+            },
+            setHeader: (name, value) => {
+                ctx.headers[name] = value
+            }
+        }, next)
+    );
 
-let _resolve
-let readyPromise = new Promise(resolve => {
-    _resolve = resolve
-})
+    clientCompiler.plugin('done', (stats) => {
+        stats = stats.toJson();
+        stats.errors.forEach(err => console.error(err));
+        stats.warnings.forEach(err => console.warn(err));
+        if (stats.errors.length) return;
 
-console.log('> Starting dev server...')
-devMiddleware.waitUntilValid(() => {
-    console.log('> Listening at ' + uri + '\n')
-    // when env is testing, don't need open it
-    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-        opn(uri)
-    }
-    _resolve()
-})
+        clientManifest = JSON.parse(readFile(
+            devMiddleware.fileSystem,
+            'vue-ssr-client-manifest.json'
+        ));
+        if (bundle) {
+            ready(bundle, {
+                clientManifest
+            })
+        }
+    });
 
-let server = app.listen(port)
+    // hot middleware
+    app.use(hotMiddleware(clientCompiler, {heartbeat: 5000}))
 
-module.exports = {
-    ready: readyPromise,
-    close: () => {
-        server.close()
-    }
-}
+    // watch and update server renderer
+    const serverCompiler = webpack(serverConfig);
+    const mfs = new MFS();
+    serverCompiler.outputFileSystem = mfs;
+    serverCompiler.watch({}, (err, stats) => {
+        if (err) throw err;
+        stats = stats.toJson();
+        stats.errors.forEach(err => console.error(err));
+        stats.warnings.forEach(err => console.warn(err));
+        if (stats.errors.length) return;
+
+        // read bundle generated by vue-ssr-webpack-plugin
+        // const readFile = (file) => mfs.readFileSync(path.join(serverConfig.output.path, file), 'utf-8')
+        bundle = JSON.parse(readFile(mfs, 'vue-ssr-server-bundle.json'));
+        if (clientManifest) {
+            ready(bundle, {
+                clientManifest
+            })
+        }
+    });
+
+    return readyPromise
+};

@@ -1,25 +1,24 @@
 const path = require('path')
+const webpack = require('webpack')
 const utils = require('./utils')
 const config = require('./config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-function resolve(dir) {
-    return path.join(__dirname, '..', dir)
-}
+const resolve = dir => path.join(__dirname, '../', dir)
 
+const isProd = process.env.NODE_ENV === 'production'
+
+vueLoaderConfig.loaders['i18n'] = '@kazupon/vue-i18n-loader'
 module.exports = {
-    node: {
-        net: 'empty',
-        tls: 'empty',
-        dns: 'empty'
-    },
     entry: {
-        app: './src/main.js'
+        app: './src/client.entry.js'
     },
     output: {
         path: config.build.assetsRoot,
         filename: '[name].js',
-        publicPath: process.env.NODE_ENV === 'production'
+        publicPath: isProd
             ? config.build.assetsPublicPath
             : config.dev.assetsPublicPath
     },
@@ -28,10 +27,21 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src')
-        }
+        },
+        modules: [resolve('src'), resolve('node_modules')]
     },
     module: {
+        noParse: /es6-promise\.js$/, // avoid webpack shimming process
         rules: [
+            {
+                test: /\.(js|vue)$/,
+                loader: 'eslint-loader',
+                enforce: "pre",
+                include: [resolve('src'), resolve('test')],
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -45,7 +55,7 @@ module.exports = {
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
-                options: {
+                query: {
                     limit: 10000,
                     name: utils.assetsPath('img/[name].[hash:7].[ext]')
                 }
@@ -53,11 +63,37 @@ module.exports = {
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
-                options: {
+                query: {
                     limit: 10000,
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
             }
         ]
-    }
-}
+    },
+    performance: {
+        maxEntrypointSize: 300000,
+        hints: isProd ? 'warning' : false
+    },
+    plugins: isProd
+        ? [
+            // Scope Hositing
+            new webpack.optimize.ModuleConcatenationPlugin(),
+            // extract css into its own file
+            new ExtractTextPlugin({
+                filename: utils.assetsPath('css/[name].[contenthash].css')
+            }),
+            // minify css after extract
+            new OptimizeCSSPlugin(),
+            // minify JS
+            new webpack.optimize.UglifyJsPlugin({
+                workers: require('os').cpus().length,
+                mangle: true,
+                compress: {
+                    warnings: false,
+                    drop_console: true
+                },
+                sourceMap: true
+            })
+        ]
+        : []
+};

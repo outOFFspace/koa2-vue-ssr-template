@@ -5,11 +5,10 @@
   "author": "Bohdan Vovchuk <vovchuck.bogdan@gmail.com>",
   "private": false,
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "node index.js",
     "build": "node build/build.js",
-    "server": "nodemon --delay 2000ms -w app.js -w server index.js",
-    "start": "concurrently -k \"npm run server\" \"npm run dev\"",
-    "ssr_dev": "node api/app.js"
+    "server": "nodemon --delay 2000ms -w server index.js",
+    "start": "concurrently -k \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
     "axios": "^0.15.3",
