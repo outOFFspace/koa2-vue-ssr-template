@@ -3,20 +3,10 @@
         <div class="container container-style">
             <!--START MOBILE NAVIGATION-->
             <div class="navbar-container">
-                <div class="screen">
-                    <div class="menu-bg"></div>
+                <div class="screen" v-bind:style="`display:${mobileMenuStyle}`">
+                    <div v-bind:class="`menu-bg ${animateClass}`"></div>
                     <div class="menu">
                         <ul class="menu-splitL">
-                            <li><a class="page-scroll" href="#page-top">Home</a></li>
-                            <li><a class="page-scroll" href="#feature">Features</a></li>
-                            <li><a class="page-scroll" href="#pricing">Pricing</a></li>
-                            <li><a class="page-scroll" href="#testimonial">Testimonial</a></li>
-                            <li><a class="page-scroll" href="#contact">Contact</a></li>
-                            <li><a class="login-btn" href="javascript:;">Login</a></li>
-                            <li class="active"><a class="btn btn-bordered btn-sm sign-up-btn" href="javascript:;"><span>Sign Up</span></a>
-                            </li>
-                        </ul>
-                        <ul class="menu-splitR">
                             <li><a class="page-scroll" href="#page-top">Home</a></li>
                             <li><a class="page-scroll" href="#feature">Features</a></li>
                             <li><a class="page-scroll" href="#pricing">Pricing</a></li>
@@ -31,27 +21,30 @@
             </div>
             <!--END MOBILE NAVIGATION-->
             <div class="navbar-header">
-                <div class="burger navbar-toggle">
-                    <div class="x"></div>
-                    <div class="y"></div>
-                    <div class="z"></div>
+                <div v-bind:class="`burger navbar-toggle ` + openClass" @click="openMenu">
+                    <div v-bind:class="`x ${burgerMenu.x}`"></div>
+                    <div class="y" v-bind:style="burgerMenu.y"></div>
+                    <div v-bind:class="`z ${burgerMenu.z}`"></div>
                 </div>
-                <a href="/"><img class="img-responsive header-logo" src="/images/logo.png"></a>
+                <router-link :to="{name: 'home', params: {lang: $i18n.locale}}">
+                    <img class="img-responsive header-logo" src="/images/logo.png">
+                </router-link>
             </div>
             <div class="navbar-collapse nav-mobile" id="navbar">
                 <ul class="nav navbar-nav navigation-top">
                     <li class="active">
-                        <a href="/">Home</a>
+                        <router-link :to="{name: 'home', params: {lang: $i18n.locale}}">{{$t('Home')}}</router-link>
                     </li>
                     <li><a href="#feature">Features</a></li>
-                    <li><router-link :to="{name: 'contacts', params: {lang: $i18n.locale}}">Contacts</router-link></li>
+                    <li><router-link :to="{name: 'contacts', params: {lang: $i18n.locale}}">{{$t('Contacts')}}</router-link></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="login-btn" href="javascript:;" data-toggle="modal" data-target="#loginModal">Login</a>
+                    <li><a class="login-btn" href="javascript:;" data-toggle="modal" data-target="#loginModal">{{$t('Login')}}</a>
                     </li>
                     <li class="active">
                         <button class="btn btn-bordered btn-sm sign-up-btn" type="button" data-toggle="modal"
-                                data-target="#loginModal"><span>Sign Up</span></button>
+                                data-target="#loginModal"><span>{{$t('Sign Up')}}</span>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -67,11 +60,29 @@
         data() {
             return {
                 background: 'transparent',
-                className: ''
+                className: '',
+                openClass: '',
+                animateClass: '',
+                mobileMenuStyle: 'none',
+                burgerMenu: {
+                    x: '',
+                    y: '',
+                    z: ''
+                }
             }
         },
         components: {
             LangSwitcher
+        },
+        methods: {
+            openMenu() {
+                this.openClass = this.openClass === 'open' ? '' : 'open'
+                this.mobileMenuStyle = this.mobileMenuStyle === 'none' ? 'block;' : 'none'
+                this.animateClass = this.animateClass === '' ? 'animate' : ''
+                this.burgerMenu.y = this.burgerMenu.y === '' ? 'display: none' : ''
+                this.burgerMenu.x = this.burgerMenu.x === '' ? 'collapse rotate30 rotate45' : ''
+                this.burgerMenu.z = this.burgerMenu.z === '' ? 'collapse rotate150 rotate135' : ''
+            }
         },
         created() {
             if (process.env.VUE_ENV === 'client') {

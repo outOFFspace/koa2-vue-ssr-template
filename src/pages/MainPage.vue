@@ -93,7 +93,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Latest PHP &amp; MySQL<span class="circle-features icon-latest-tech icon-align"></span></h3>
+                                <h3>SSR Rendering Included<span class="circle-features icon-latest-tech icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>

@@ -2,30 +2,8 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <ul class="heading text-xs-center">
-                        <li>About</li>
-                        <li><img class="img-logo" src="/images/logo.png" alt="Logo"></li>
-                        <li>
-                            <p class="about-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-2 col-sm-6 clear">
-                    <ul class="heading">
-                        <li>Important</li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <ul class="heading">
-                        <li>Support</li>
-                        <li><a href="#">Product Support</a></li>
-                        <li><a href="#">Support Center</a></li>
-                        <li><a href="#">Knowledge Base</a></li>
-                    </ul>
+                <div class="col-md-12 col-sm-12">
+                    <div class="white-color">{{year}}, Koa2 Vue2 StarterKit</div>
                 </div>
             </div>
         </div>
