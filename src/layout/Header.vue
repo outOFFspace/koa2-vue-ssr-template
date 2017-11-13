@@ -9,9 +9,7 @@
                         <ul class="menu-splitL">
                             <li><a class="page-scroll" href="#page-top">Home</a></li>
                             <li><a class="page-scroll" href="#feature">Features</a></li>
-                            <li><a class="page-scroll" href="#pricing">Pricing</a></li>
-                            <li><a class="page-scroll" href="#testimonial">Testimonial</a></li>
-                            <li><a class="page-scroll" href="#contact">Contact</a></li>
+                            <li><router-link :to="{name: 'contacts', params: {lang: $i18n.locale}}">{{$t('Contacts')}}</router-link></li>
                             <li><a class="login-btn" href="javascript:;">Login</a></li>
                             <li class="active"><a class="btn btn-bordered btn-sm sign-up-btn" href="javascript:;"><span>Sign Up</span></a>
                             </li>

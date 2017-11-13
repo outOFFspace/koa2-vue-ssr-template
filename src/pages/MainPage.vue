@@ -7,8 +7,8 @@
                         <div class="col-md-12 container-padding">
                             <div class="col-md-6 text-center">
                                 <h1 class="heading-page">VueJs+Koa2 StarterKit</h1>
-                                <p class="sub-content text-center">High-growth businesses &amp; moderate web traffic,For your website. Get web hosting and get FreeDomain Name</p>
-                                <a class="btn btn-bordered btn-lg page-scroll wow swing" href="#pricing-plan" data-wow-duration="0.8s" data-wow-delay="0.6s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.6s; animation-name: swing;"><span>See Pricing</span></a>
+                                <p class="sub-content text-center">
+                                    High-growth businesses &amp; moderate web traffic,For your website. Get web hosting and get FreeDomain Name</p>
                             </div>
                             <div class="col-md-6">
                                 <div class="item">
@@ -39,24 +39,27 @@
         </section>
         <div class="features">
             <div class="container">
-                <div class="col-sm-12 content-section wow fadeInDown" data-wow-duration="0.8s" data-wow-delay="0s" style="visibility: visible; animation-duration: 0.8s; animation-delay: 0s; animation-name: fadeInDown;">
+                <div class="col-sm-12 content-section wow fadeInDown" data-wow-duration="0.8s" data-wow-delay="0s"
+                     style="visibility: visible; animation-duration: 0.8s; animation-delay: 0s; animation-name: fadeInDown;">
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
                                 <h3>Monolith Structure<span class="circle-features icon-setup icon-align"></span></h3>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Lightweight Koa2<span class="circle-features icon-git-support icon-align"></span></h3>
+                                <h3>Koa2 API<span class="circle-features icon-git-support icon-align"></span></h3>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
                             </div>
                         </div>
                     </div>
@@ -66,7 +69,8 @@
                                 <h3>Responsive<span class="circle-features icon-backup icon-align"></span></h3>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
                             </div>
                         </div>
                     </div>
@@ -76,7 +80,8 @@
                                 <h3>Multilanguage<span class="circle-features icon-scripts icon-align"></span></h3>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
                             </div>
                         </div>
                     </div>
@@ -86,17 +91,19 @@
                                 <h3>Ready To Use<span class="circle-features icon-c-panel icon-align"></span></h3>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>SSR Rendering Included<span class="circle-features icon-latest-tech icon-align"></span></h3>
+                                <h3>SSR Rendering<span class="circle-features icon-latest-tech icon-align"></span></h3>
                             </div>
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown</p>
                             </div>
                         </div>
                     </div>
