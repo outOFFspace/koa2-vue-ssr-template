@@ -33,7 +33,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Monolith Structure<span class="circle-features icon-setup icon-align"></span></h3>
+                                <h3>Monolith Structure<span class="circle-features fa fa-cube"></span></h3>
                             </div>
                             <div class="content">
                                 <p>
@@ -44,7 +44,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Koa2 API<span class="circle-features icon-git-support icon-align"></span></h3>
+                                <h3>Koa2 API<span class="circle-features fa fa-code"></span></h3>
                             </div>
                             <div class="content">
                                 <p>
@@ -55,7 +55,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Responsive<span class="circle-features icon-backup icon-align"></span></h3>
+                                <h3>Responsive<span class="circle-features fa fa-tablet"></span></h3>
                             </div>
                             <div class="content">
                                 <p>
@@ -66,7 +66,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Multilanguage<span class="circle-features icon-scripts icon-align"></span></h3>
+                                <h3>Multilanguage<span class="circle-features fa fa-language"></span></h3>
                             </div>
                             <div class="content">
                                 <p>
@@ -77,7 +77,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>Ready To Use<span class="circle-features icon-c-panel icon-align"></span></h3>
+                                <h3>Configurable<span class="circle-features icon-c-panel icon-align"></span></h3>
                             </div>
                             <div class="content">
                                 <p>
@@ -88,7 +88,7 @@
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">
-                                <h3>SSR Rendering<span class="circle-features icon-latest-tech icon-align"></span></h3>
+                                <h3>SSR Rendering<span class="circle-features fa fa-desktop"></span></h3>
                             </div>
                             <div class="content">
                                 <p>
