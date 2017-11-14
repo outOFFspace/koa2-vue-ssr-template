@@ -8,7 +8,8 @@
                             <div class="col-md-6 text-center">
                                 <h1 class="heading-page">VueJs+Koa2 StarterKit</h1>
                                 <p class="sub-content text-center">
-                                    High-growth businesses &amp; moderate web traffic,For your website. Get web hosting and get FreeDomain Name</p>
+                                    <a class="btn btn-bordered btn-md" href="https://github.com/outOFFspace/koa2-vue-ssr-template"><i class="fa fa-github fa-2x" style="vertical-align: sub"></i> View on GitHub</a>
+                                </p>
                             </div>
                             <div class="col-md-6">
                                 <div class="item">

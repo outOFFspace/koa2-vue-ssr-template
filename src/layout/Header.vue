@@ -86,7 +86,6 @@
         },
         created() {
             if (process.env.VUE_ENV === 'client') {
-                this.fixMenu(window.scrollY)
                 window.addEventListener('scroll', () => {
                     this.fixMenu(window.scrollY)
                 })
