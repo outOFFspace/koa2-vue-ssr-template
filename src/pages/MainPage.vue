@@ -20,27 +20,15 @@
                 </div>
             </div>
         </div>
-        <section id="feature">
-            <div class="heading-background">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="heading">
-                                <h2>Features</h2>
-                                <div class="sub-heading">
-                                    <p>You will get lot of features with Sinewave</p>
-                                </div>
-                            </div>
+        <div class="features" id="features">
+            <div class="container">
+                <div class="col-sm-12">
+                    <div class="about-section">
+                        <h2 class="heading">Features</h2>
+                        <div class="text-center" style="margin-bottom: 50px">
+                            <hr class="style-line"><span class="icon-heading icon-bg"></span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <div class="features">
-            <div class="container">
-                <div class="col-sm-12 content-section wow fadeInDown" data-wow-duration="0.8s" data-wow-delay="0s"
-                     style="visibility: visible; animation-duration: 0.8s; animation-delay: 0s; animation-name: fadeInDown;">
                     <div class="col-sm-4">
                         <div>
                             <div class="heading">

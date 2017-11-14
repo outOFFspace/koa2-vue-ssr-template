@@ -19,7 +19,7 @@ module.exports = {
     'settings': {
         'import/resolver': {
             'webpack': {
-                'config': 'build/ssr/webpack.base.conf.js'
+                'config': 'build/webpack.base.conf.js'
             }
         }
     },
@@ -29,13 +29,6 @@ module.exports = {
         'global-require': 0,
         'no-param-reassign': 0,
         'func-names': 0,
-        // don't require .vue extension when importing
-        // 'import/extensions': ['error', 'always', {
-        //     'js': 'never',
-        //     'vue': 'never',
-        //     'json': 'never'
-        // }],
-        // allow optionalDependencies
         'import/no-extraneous-dependencies': ['error', {
             'optionalDependencies': ['test/unit/index.js']
         }],

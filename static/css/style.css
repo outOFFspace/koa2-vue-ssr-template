@@ -862,13 +862,7 @@ div.menu li.animate {
 }
 
 .about-section {
-    padding: 70px 0 0 0;
-}
-
-@media (min-width: 768px) {
-    .about-section {
-        padding: 90px 0 105px 0;
-    }
+    padding: 30px 0 0 0;
 }
 
 .about-section .icon-bg {
@@ -2342,4 +2336,8 @@ div.menu ul.animate li {
     font-size: 19px;
     opacity: 1;
     transition: all 200ms cubic-bezier(0, 0.995, 0.99, 1);
+}
+
+.navbar-fixed-top.top-nav-collapse {
+    background: #000;
 }
