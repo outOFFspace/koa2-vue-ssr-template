@@ -26,15 +26,16 @@ app.on('error', function (err, ctx) {
     console.log('server error', err)
 });
 app.use(serve(path.resolve('static')));
+app.use(serve(path.resolve('dist')));
+
 app.use(router.routes()).use(router.allowedMethods());
+
 app.use((ctx, next) => {
     ctx.type = 'application/json';
     ctx.status = 404;
     ctx.body = {status: 404, err: 'Page Not Found'};
 });
 app.use(historyApiFallback());
-app.use(serve(path.resolve('dist')));
-
 app.listen(config.server.port, () => {
     console.log('%s is listening in %d', config.app.name, config.server.port);
 });

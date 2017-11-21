@@ -13,6 +13,11 @@ export function createRouter() {
                 redirect: '/en/'
             },
             {
+                path: '/test/',
+                name: 'test',
+                component: () => import('../pages/Drop.vue')
+            },
+            {
                 path: '/:lang/',
                 name: 'home',
                 component: () => import('../pages/MainPage.vue')
