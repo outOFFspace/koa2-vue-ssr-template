@@ -12,3 +12,9 @@ VueJS StarterKit with SSR rendering and Koa2 API
 #### Production:
 
 `npm run start`
+
+#### Tests:
+
+`npm run e2e`
+`npm run unit`
+
