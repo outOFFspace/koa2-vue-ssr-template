@@ -1,4 +1,4 @@
-# koa2-vue-ssr-template
+# Koa2-Vue-SSR-template
 VueJS StarterKit with SSR rendering and Koa2 API
 
 ![Main Page](https://image.prntscr.com/image/8g_aWmViQlSzu6p-mgu3RQ.png)
