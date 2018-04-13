@@ -104,6 +104,6 @@
 
 <script>
     export default {
-        name: 'main'
+        name: 'main-page'
     }
 </script>

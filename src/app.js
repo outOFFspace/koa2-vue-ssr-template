@@ -12,7 +12,8 @@ import adaptiveMixin from './mixins/adaptive'
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
-    locale: Vue.config.lang
+    locale: Vue.config.lang,
+    silentTranslationWarn: true
 })
 
 Vue.mixin(titleMixin)

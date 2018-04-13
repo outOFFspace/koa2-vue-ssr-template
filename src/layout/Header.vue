@@ -54,7 +54,7 @@
     import LangSwitcher from '../components/ui/LangSwitcher.vue'
 
     export default {
-        name: 'header',
+        name: 'main-header',
         data() {
             return {
                 className: '',
