@@ -45,7 +45,6 @@ module.exports = function setupDevServer(app, cb) {
 
     // modify client config to work with hot middleware
     clientConfig.entry.app = ['webpack-hot-middleware/client', clientConfig.entry.app]
-    clientConfig.mode = 'development'
 
     // dev middleware
     const clientCompiler = webpack(clientConfig)
@@ -87,7 +86,6 @@ module.exports = function setupDevServer(app, cb) {
 
     // hot middleware
     app.use(hotMiddleware(clientCompiler, {heartbeat: 5000}))
-    serverConfig.mode = 'development'
     // watch and update server renderer
     const serverCompiler = webpack(serverConfig);
     const mfs = new MFS();
