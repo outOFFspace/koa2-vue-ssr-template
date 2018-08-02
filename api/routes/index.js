@@ -14,10 +14,9 @@ module.exports = function (app) {
     /**
      * Custom renderer
      * @param ctx
-     * @param next
-     * @returns {Promise.<void>}
+     * @returns {Promise.<void>|undefined}
      */
-    async function render(ctx, next) {
+    async function render(ctx) {
         ctx.type = 'html';
 
         const {PassThrough} = require('stream');
@@ -63,8 +62,8 @@ module.exports = function (app) {
     }
 
     // For none API routes we should render page content
-    router.get(/^(?!\/api)(?:\/|$)/, isProd ? render : (ctx, next) => {
-        view.ready.then(() => render(ctx, next))
+    router.get(/^(?!\/api)(?:\/|$)/, isProd ? render : (ctx) => {
+        view.ready.then(() => render(ctx))
     });
 
     return router
