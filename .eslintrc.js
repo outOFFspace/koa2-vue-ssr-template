@@ -1,5 +1,4 @@
 // http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
     root: true,
     parser: 'babel-eslint',
@@ -25,7 +24,7 @@ module.exports = {
     },
     // add your custom rules here
     'rules': {
-        "indent": [2, 4],
+        'indent': [2, 4],
         'global-require': 0,
         'no-param-reassign': 0,
         'func-names': 0,
@@ -41,7 +40,6 @@ module.exports = {
         'import/prefer-default-export': 0,
         'no-console': 0,
         'no-plusplus': 0,
-        'no-useless-concat': 0,
         'no-unused-vars': [2, {'args': 'none'}],
         // allow debugger during development
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
