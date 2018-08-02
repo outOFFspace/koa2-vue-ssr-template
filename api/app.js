@@ -22,7 +22,7 @@ if (!isProd) {
     app.use(logger());
 }
 
-app.on('error', function (err, ctx) {
+app.on('error', function (err) {
     console.log('server error', err)
 });
 app.use(serve(path.resolve('static')));
@@ -30,7 +30,7 @@ app.use(serve(path.resolve('dist')));
 
 app.use(router.routes()).use(router.allowedMethods());
 
-app.use((ctx, next) => {
+app.use((ctx) => {
     ctx.type = 'application/json';
     ctx.status = 404;
     ctx.body = {status: 404, err: 'Page Not Found'};
