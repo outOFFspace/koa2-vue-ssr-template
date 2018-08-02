@@ -5,7 +5,7 @@
     "author": "Bohdan Vovchuk <vovchuck.bogdan@gmail.com>",
     "private": false,
     "scripts": {
-        "dev": "supervisor index.js",
+        "dev": "supervisor --ignore src index.js",
         "start": "cross-env NODE_ENV=production nodemon index.js",
         "build": "echo 'build:client build:server' | xargs -t -P2 -n1 yarn run && find ./dist/* -mtime +14 -type f -delete",
         "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.conf.js --progress --hide-modules",
