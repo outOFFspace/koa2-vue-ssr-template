@@ -1,8 +1,8 @@
 module.exports = {
-    contacts: async function (ctx) {
+    contacts: async (ctx) => {
         ctx.body = {};
     },
-    view: async function (ctx) {
+    view: async (ctx) => {
         ctx.body = {
             msg: 'page view'
         };

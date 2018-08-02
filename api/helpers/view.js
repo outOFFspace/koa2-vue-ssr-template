@@ -8,7 +8,7 @@ const rootPath = path.resolve(__dirname, '../..');
 
 /* eslint-disable import/no-dynamic-require */
 const defaults = {
-    template: path.resolve(rootPath, 'index.html'),
+    template: path.resolve(rootPath, 'app.html'),
     bundle: path.resolve(rootPath, 'dist/vue-ssr-server-bundle.json'),
     clientManifest: path.resolve(rootPath, 'dist/vue-ssr-client-manifest.json')
 };
