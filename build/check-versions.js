@@ -15,11 +15,11 @@ let versionRequirements = [
     },
 ]
 
-if (shell.which('npm')) {
+if (shell.which('yarn')) {
     versionRequirements.push({
-        name: 'npm',
-        currentVersion: exec('npm --version'),
-        versionRequirement: packageConfig.engines.npm
+        name: 'yarn',
+        currentVersion: exec('yarn -v'),
+        versionRequirement: packageConfig.engines.yarn
     })
 }
 

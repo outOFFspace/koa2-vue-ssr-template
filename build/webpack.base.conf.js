@@ -12,6 +12,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 vueLoaderConfig.loaders['i18n'] = '@kazupon/vue-i18n-loader'
 module.exports = {
+    mode: process.env.NODE_ENV || 'development',
     entry: {
         app: './src/client.entry.js'
     },
