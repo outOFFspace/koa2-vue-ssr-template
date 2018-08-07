@@ -1,7 +1,7 @@
 # Koa2-Vue-SSR-template
 VueJS StarterKit with SSR rendering and Koa2 API
 
-### What's under the hood?:
+### What's under the hood?
 * Koa2 - API
 * Vue.js + SSR
 * Sequelize - for secure DB queries and reusable models
