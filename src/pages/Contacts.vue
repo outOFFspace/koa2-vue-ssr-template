@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-sm-12" style="padding: 70px 0 30px">
                             <div class="heading"><h2>Contacts</h2>
-                                <div class="sub-heading"><p>You will get lot of features with Sinewave</p></div>
+                                <div class="sub-heading"><p>You will get lot of features</p></div>
                             </div>
                         </div>
                     </div>

@@ -37,26 +37,33 @@
                     <li><router-link :to="{name: 'contacts', params: {lang: $i18n.locale}}">{{$t('Contacts')}}</router-link></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="login-btn" href="javascript:;" data-toggle="modal" data-target="#loginModal">{{$t('Login')}}</a>
+                    <li>
+                        <a class="login-btn" @click="loginModal = true">{{$t('Login')}}</a>
                     </li>
                     <li class="active">
-                        <button class="btn btn-bordered btn-sm sign-up-btn" type="button" data-toggle="modal"
-                                data-target="#loginModal"><span>{{$t('Sign Up')}}</span>
+                        <button class="btn btn-bordered btn-sm sign-up-btn" type="button" @click="loginModal = true">
+                            <span>{{$t('Sign Up')}}</span>
                         </button>
                     </li>
                 </ul>
             </div>
+            <base-modal v-show="loginModal" @close="loginModal = false">
+                <h3 slot="header">Sign In</h3>
+                <div slot="body"></div>
+            </base-modal>
         </div>
     </nav>
 </template>
 
 <script>
     import LangSwitcher from '../components/ui/LangSwitcher.vue'
+    import BaseModal from '../components/ui/BaseModal.vue'
 
     export default {
         name: 'main-header',
         data() {
             return {
+                loginModal: false,
                 className: '',
                 openClass: '',
                 animateClass: '',
@@ -69,6 +76,7 @@
             }
         },
         components: {
+            BaseModal,
             LangSwitcher
         },
         methods: {
