@@ -5,8 +5,7 @@ import VueI18n from 'vue-i18n'
 import App from './App.vue'
 import {createStore} from './store'
 import {createRouter} from './router'
-import authMixin from './mixins/auth'
-import titleMixin from './mixins/title'
+import mainMixin from './mixins/main'
 import adaptiveMixin from './mixins/adaptive'
 
 Vue.use(VueI18n)
@@ -15,8 +14,6 @@ const i18n = new VueI18n({
     locale: Vue.config.lang,
     silentTranslationWarn: true
 })
-
-Vue.mixin(titleMixin)
 
 export function createApp() {
     const router = createRouter()
@@ -31,7 +28,7 @@ export function createApp() {
     sync(store, router)
 
     const app = new Vue({
-        mixins: [authMixin, adaptiveMixin],
+        mixins: [mainMixin, adaptiveMixin],
         computed: {
             langUrl() {
                 return `/${this.$i18n.locale}`

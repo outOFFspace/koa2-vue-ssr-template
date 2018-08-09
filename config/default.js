@@ -4,7 +4,8 @@
 module.exports = {
     app: {
         name: 'Koa2Vue2',
-        version: '0.0.1'
+        version: '1.0.0',
+        host: 'http://localhost:6699'
     },
     server: {
         port: process.env.NODE_APP_INSTANCE || 6699

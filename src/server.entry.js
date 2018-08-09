@@ -12,6 +12,7 @@ export default context => new Promise((resolve, reject) => {
     if (context.user) {
         store.state.user = context.user
     }
+    store.state.params = context.params
     store.state.device = context.isMobile ? 'mobile' : 'desktop'
 
     // set router's location

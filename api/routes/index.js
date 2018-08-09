@@ -1,15 +1,17 @@
 /* eslint-disable consistent-return */
-const router = require('koa-router')();
-const mobileDetect = require('mobile-detect');
-const View = require('../helpers/view');
-const isProd = process.env.NODE_ENV === 'production';
-const page = require('./page.js');
+const router = require('koa-router')()
+const mobileDetect = require('mobile-detect')
+const View = require('../helpers/view')
+const config = require('config')
 
-router.use(page.routes());
+const isProd = process.env.NODE_ENV === 'production'
+const page = require('./page.js')
+
+router.use(page.routes())
 
 module.exports = function (app) {
     // create vue renderer instance
-    const view = new View(app);
+    const view = new View(app)
 
     /**
      * Custom renderer
@@ -17,13 +19,13 @@ module.exports = function (app) {
      * @returns {Promise.<void>|undefined}
      */
     async function render(ctx) {
-        ctx.type = 'html';
+        ctx.type = 'html'
 
-        const {PassThrough} = require('stream');
-        ctx.body = new PassThrough();
+        const {PassThrough} = require('stream')
+        ctx.body = new PassThrough()
 
         if (!view.renderer) {
-            ctx.body.end('waiting for compilation... refresh in a moment.');
+            ctx.body.end('waiting for compilation... refresh in a moment.')
             return
         }
 
@@ -31,14 +33,14 @@ module.exports = function (app) {
             if (error.url) {
                 return ctx.redirect(error.url)
             } else if (error.code === 404) {
-                ctx.status = 404;
+                ctx.status = 404
                 ctx.body.end('404 Page Not Found')
             } else {
                 // Render Error Page or Redirect
-                ctx.status = 500;
-                ctx.body.end('500 Internal Server Error');
-                console.error(`error during render : ${ctx.url}`);
-                console.error(error.stack);
+                ctx.status = 500
+                ctx.body.end('500 Internal Server Error')
+                console.error(`error during render : ${ctx.url}`)
+                console.error(error.stack)
             }
         }
 
@@ -47,14 +49,17 @@ module.exports = function (app) {
         }
 
         try {
-            const md = new mobileDetect(ctx.headers['user-agent']);
+            const md = new mobileDetect(ctx.headers['user-agent'])
             const context = {
                 title: 'Koa2 Vue StarterKit',
                 url: ctx.url,
                 user: ctx.user,
-                isMobile: !!md.mobile()
-            };
-            const content = await view.render(context);
+                isMobile: !!md.mobile(),
+                params: {
+                    host: config.app.host
+                }
+            }
+            const content = await view.render(context)
             handleEnd(content)
         } catch (error) {
             handleError(error)
@@ -64,7 +69,7 @@ module.exports = function (app) {
     // For none API routes we should render page content
     router.get(/^(?!\/api)(?:\/|$)/, isProd ? render : (ctx) => {
         view.ready.then(() => render(ctx))
-    });
+    })
 
     return router
-};
+}

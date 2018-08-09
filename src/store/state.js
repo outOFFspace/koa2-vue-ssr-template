@@ -4,7 +4,8 @@
 
 const state = {
     user: null,
-    device: 'desktop'
+    device: 'desktop',
+    params: {}
 }
 
 export default state
